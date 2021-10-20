@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="vMF_Sites-DG",
+    name="vMF_Sites_DG",
     version="1.0.0",
     author="Dave Heslop",
     author_email="dave.heslop74@gmail.com",
