@@ -42,10 +42,11 @@ def read_data(X):
     data = np.loadtxt(X['file'],delimiter=',',skiprows=1)
     
     #final_df = X['input_widget'].get_changed_df()
-    X['dec'] = data[:,0]
-    X['inc'] = data[:,1]
-    X['a95'] = data[:,3]
-    X['n'] = data[:,2]
+    idx = X['idx']
+    X['dec'] = data[idx,1]
+    X['inc'] = data[idx,2]
+    X['a95'] = data[idx,4]
+    X['n'] = data[idx,3]
     X['N'] = len(X['dec'])
     X['R'] = a95inv(X['a95'],X['n'])
     X['k'] = A3inv(X['R'],X['n'])
@@ -78,7 +79,8 @@ def process_data(X):
     
     # Print results
     spacer = ipyw.HTML(value='<font color="white">Spacer text</font>')
-    title_main = ipyw.HTML(value='<h3>Results</h3>')
+    #title_main = ipyw.HTML(value='<h3>Results</h3>')
+    title_main = ipyw.HTMLMath(value='Results: Publication {0:.0f}'.format(X['pub']))
     hr = ipyw.HTML(value='<hr style="height:2px;border:none;color:#333;background-color:#333;" />')
     title_star = ipyw.HTML(value='<h4>Incorperating uncertainty</h4>')
     inc_star = ipyw.HTMLMath(value='Inc$^*$ [deg.] = {0:.2f}'.format(X['mu*'][1]))
@@ -91,7 +93,7 @@ def process_data(X):
     results_star = ipyw.VBox((title_star,inc_star,dec_star,a95_star))
     results_null = ipyw.VBox((title_null,inc_null,dec_null,a95_null))
     results_comb = ipyw.HBox((results_star,spacer,results_null))
-    results = ipyw.VBox((hr,title_main,results_comb,hr))
+    results = ipyw.VBox((hr,title_main,results_comb))
     display(results)
     
     return X

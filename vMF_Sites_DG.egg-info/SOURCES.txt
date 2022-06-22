@@ -1,0 +1,8 @@
+README.md
+setup.cfg
+setup.py
+vMF_Sites_DG/__init__.py
+vMF_Sites_DG.egg-info/PKG-INFO
+vMF_Sites_DG.egg-info/SOURCES.txt
+vMF_Sites_DG.egg-info/dependency_links.txt
+vMF_Sites_DG.egg-info/top_level.txt

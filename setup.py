@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="vMF_Sites_DG",
-    version="1.0.0",
+    version="2.0.0",
     author="Dave Heslop",
     author_email="dave.heslop74@gmail.com",
     description="Fisher site uncertainty package",
